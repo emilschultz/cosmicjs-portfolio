@@ -3,7 +3,7 @@ import Cosmic from 'cosmicjs';
 
 import SiteNavigation from '../../components/SiteNavigation';
 
-const ContactContainer = () => {
+const BlogListContainer = () => {
     const [pageData, setPageData] = useState(null);
 
     useEffect(() => {
@@ -13,12 +13,14 @@ const ContactContainer = () => {
             read_key: process.env.READ_KEY
         });
 
-        bucket.getObject({
-            slug: 'contact',
-            props: 'title,content'
+        bucket.getObjects({
+            type: 'blog-lists',
+            limit: 5,
+            props: 'title,slug', 
         })
             .then(data => {
-                setPageData(data.object);
+                console.log(data)
+                setPageData(data);
             })
             .catch(error => {
                 console.error(error)
@@ -35,8 +37,16 @@ const ContactContainer = () => {
       return( 
         <main>
             <SiteNavigation />
-            <h1>{pageData.title}</h1>
-            <div dangerouslySetInnerHTML={{__html: pageData.content}}/>
+            <h1>My blog posts</h1>
+            <ul>
+                {pageData.objects.map(item => {
+                    return(
+                        <li>
+                            <a href={`/blog/${item.slug}`}>{item.title}</a>
+                        </li>
+                    )
+                })}
+            </ul>
         </main>
     )
     }
@@ -47,4 +57,4 @@ const ContactContainer = () => {
     )
 }
 
-export default ContactContainer;
+export default BlogListContainer;

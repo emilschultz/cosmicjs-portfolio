@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
-
+ 
 import SiteNavigation from '../../components/SiteNavigation';
 
-const ContactContainer = () => {
+const BlogPostContainer = ({match}) => {
     const [pageData, setPageData] = useState(null);
 
     useEffect(() => {
@@ -13,9 +13,10 @@ const ContactContainer = () => {
             read_key: process.env.READ_KEY
         });
 
+
         bucket.getObject({
-            slug: 'contact',
-            props: 'title,content'
+            slug: match.params.slug,
+            props: 'slug,title,content'
         })
             .then(data => {
                 setPageData(data.object);
@@ -47,4 +48,4 @@ const ContactContainer = () => {
     )
 }
 
-export default ContactContainer;
+export default BlogPostContainer;

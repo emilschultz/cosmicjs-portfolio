@@ -3,7 +3,6 @@ import Cosmic from 'cosmicjs';
 
 import SiteNavigation from '../../components/SiteNavigation';
 
-
 const AboutContainer = () => {
     const [pageData, setPageData] = useState(null);
 

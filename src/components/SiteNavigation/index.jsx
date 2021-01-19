@@ -16,6 +16,9 @@ const SiteNavigation = () => {
               <li>
                 <NavLink to="/contact">Contact</NavLink>
               </li>
+              <li>
+                <NavLink to="/blog">Blog</NavLink>
+              </li>
             </ul>
           </nav>
     )
