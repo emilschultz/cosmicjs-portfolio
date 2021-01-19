@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Router } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const SiteNavigation = () => {
@@ -8,13 +8,13 @@ const SiteNavigation = () => {
          <nav>
             <ul>
               <li>
-                <Link to="/HomeContainer">Home</Link>
+                <NavLink to="/home">Home</NavLink>
               </li>
               <li>
-                <Link to="/AboutContainer">About</Link>
+                <NavLink to="/about">About</NavLink>
               </li>
               <li>
-                <Link to="/ContactContainer">Contact</Link>
+                <NavLink to="/contact">Contact</NavLink>
               </li>
             </ul>
           </nav>
