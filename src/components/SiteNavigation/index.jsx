@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+import SiteNavigationStyle from '../../components/SiteNavigationStyle';
+
 
 const SiteNavigation = () => {
     return(
        
-         <nav>
+         <SiteNavigationStyle>
             <ul>
               <li>
                 <NavLink to="/home">Home</NavLink>
@@ -20,7 +22,7 @@ const SiteNavigation = () => {
                 <NavLink to="/blog">Blog</NavLink>
               </li>
             </ul>
-          </nav>
+          </SiteNavigationStyle>
     )
 }
 

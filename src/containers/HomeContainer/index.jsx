@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
 
 import SiteNavigation from '../../components/SiteNavigation';
+// STYLES
+import Container from '../../components/Container';
+import PageTitle from '../../components/PageTitle';
 
 
 const HomeContainer = () => {
@@ -34,11 +37,14 @@ const HomeContainer = () => {
     
     const renderPage = () => {
       return( 
-        <main>
+        <>
             <SiteNavigation />
-            <h1>{pageData.title}</h1>
-            <div dangerouslySetInnerHTML={{__html: pageData.content}}/>
-        </main>
+            <Container as="main">
+                <PageTitle>{pageData.title}</PageTitle>
+                <div dangerouslySetInnerHTML={{__html: pageData.content}}/>
+            </Container>
+        </>
+        
     )
     }
     return(

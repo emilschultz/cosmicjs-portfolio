@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Cosmic from 'cosmicjs';
 
 import SiteNavigation from '../../components/SiteNavigation';
+import Container from '../../components/Container';
+import PageTitle from '../../components/PageTitle';
 
 const BlogListContainer = () => {
     const [pageData, setPageData] = useState(null);
@@ -35,9 +37,9 @@ const BlogListContainer = () => {
     
     const renderPage = () => {
       return( 
-        <main>
+        <Container>
             <SiteNavigation />
-            <h1>My blog posts</h1>
+            <PageTitle>My blog posts</PageTitle>
             <ul>
                 {pageData.objects.map(item => {
                     return(
@@ -47,7 +49,7 @@ const BlogListContainer = () => {
                     )
                 })}
             </ul>
-        </main>
+        </Container>
     )
     }
     return(
